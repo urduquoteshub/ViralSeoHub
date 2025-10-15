@@ -1,159 +1,149 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>ViralSEOHub — Free SEO Tools for Creators</title>
   <meta name="description" content="Free SEO tools for YouTube, TikTok & Instagram creators — title optimizer, hashtag generator, keyword finder and meta tag builder.">
-
-  <style>
-    * {
-      box-sizing: border-box;
-    }
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #f9f9f9;
-      color: #333;
-    }
-    header {
-      background: #1e1e2f;
-      color: white;
-      text-align: center;
-      padding: 1.5rem;
-    }
-    header h1 {
-      margin: 0;
-      font-size: 1.8rem;
-    }
-    header p {
-      margin-top: .3rem;
-      font-size: .95rem;
-    }
-    .container {
-      max-width: 900px;
-      margin: 1.5rem auto;
-      padding: 0 1rem;
-    }
-    .tool-box {
-      background: white;
-      padding: 1rem;
-      margin-bottom: 1.5rem;
-      border-radius: 10px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    }
-    .tool-box h2 {
-      margin-top: 0;
-    }
-    textarea, input {
-      width: 100%;
-      padding: .7rem;
-      margin-top: .5rem;
-      margin-bottom: .8rem;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      font-size: .95rem;
-    }
-    button {
-      background: #4e46e5;
-      color: white;
-      padding: .6rem 1.2rem;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      font-size: .95rem;
-    }
-    button:hover {
-      background: #3c37c0;
-    }
-    .output {
-      background: #f3f3f3;
-      padding: .7rem;
-      border-radius: 5px;
-      font-family: monospace;
-      white-space: pre-wrap;
-      min-height: 50px;
-    }
-    footer {
-      text-align: center;
-      padding: 1rem;
-      background: #1e1e2f;
-      color: #fff;
-      margin-top: 2rem;
-    }
-    footer a {
-      color: #9fa8ff;
-      text-decoration: none;
-    }
-    footer a:hover {
-      text-decoration: underline;
-    }
-  </style>
+  <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-  <header>
-    <h1>ViralSEOHub</h1>
-    <p>Free SEO Tools for YouTube, TikTok & Instagram Creators</p>
+  <header class="site-header">
+    <div class="container">
+      <h1>ViralSEOHub</h1>
+      <p class="tag">Free SEO tools for creators — optimize titles, hashtags, keywords & meta tags</p>
+    </div>
   </header>
 
-  <div class="container">
-    <!-- YouTube Title Optimizer Tool -->
-    <div class="tool-box">
+  <main class="container">
+    <!-- ✅ Title Optimizer Tool -->
+    <section class="tool-box">
       <h2>YouTube Title Optimizer</h2>
-      <p>Enter your video title below to optimize it for better search visibility:</p>
-      <textarea id="yt-title-input" rows="3" placeholder="Enter your video title..."></textarea>
-      <button onclick="optimizeTitle()">Generate Optimized Title</button>
-      <div class="output" id="yt-title-output"></div>
-    </div>
+      <p>Enter your video title to make it more clickable & SEO-friendly:</p>
+      <input type="text" id="yt-title-input" placeholder="e.g. how to grow on youtube">
+      <button onclick="optimizeTitle()">Optimize Title</button>
+      <div id="yt-title-output" class="output-box"></div>
+    </section>
 
-    <!-- Hashtag Generator Tool -->
-    <div class="tool-box">
+    <!-- ✅ Hashtag Generator Tool -->
+    <section class="tool-box">
       <h2>Hashtag Generator</h2>
       <p>Enter a topic to generate trending hashtags:</p>
-      <input type="text" id="hashtag-input" placeholder="e.g. travel vlog, cooking">
+      <input type="text" id="hashtag-input" placeholder="e.g. viral video">
       <button onclick="generateHashtags()">Generate Hashtags</button>
-      <div class="output" id="hashtag-output"></div>
-    </div>
-  </div>
+      <div id="hashtag-output" class="output-box"></div>
+    </section>
 
-  <footer>
-    <p>&copy; <span id="year"></span> ViralSEOHub — <a href="privacy.html">Privacy</a> | <a href="about.html">About</a> | <a href="contact.html">Contact</a></p>
+    <!-- ✅ Keyword Finder Tool -->
+    <section class="tool-box">
+      <h2>Keyword Finder</h2>
+      <p>Enter a topic to find related keywords:</p>
+      <input type="text" id="keyword-input" placeholder="e.g. YouTube SEO tips">
+      <button onclick="findKeywords()">Find Keywords</button>
+      <div id="keyword-results" class="output-box"></div>
+    </section>
+
+    <section class="how-it-works">
+      <h2>How ViralSEOHub helps creators</h2>
+      <ol>
+        <li>Paste your title/description or keywords into a tool.</li>
+        <li>Get instant suggestions and copy-ready results.</li>
+        <li>Use the results on YouTube / TikTok / Instagram to boost discoverability.</li>
+      </ol>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; <span id="year"></span> ViralSEOHub — <a href="privacy.html">Privacy</a> | <a href="about.html">About</a> | <a href="contact.html">Contact</a></p>
+    </div>
   </footer>
 
+  <!-- ✅ Scripts -->
   <script>
+    // Set Year
     document.getElementById('year').textContent = new Date().getFullYear();
 
+    // ✅ Title Optimizer
     function optimizeTitle() {
       const input = document.getElementById('yt-title-input').value.trim();
       const output = document.getElementById('yt-title-output');
+
       if (input.length === 0) {
         output.textContent = "⚠️ Please enter a title first.";
         return;
       }
-      const keywords = ["2025", "Viral", "Trending", "Best", "Ultimate", "Guide", "Tips"];
-      const randomKeyword = keywords[Math.floor(Math.random() * keywords.length)];
-      const optimized = `${input} | ${randomKeyword}`;
+
+      const powerWords = [
+        "Ultimate Guide", "Step by Step", "Pro Tips", "You Won’t Believe",
+        "In 2025", "Beginner Friendly", "Secrets Revealed", "That Actually Works",
+        "For Fast Growth", "That Everyone Should Know"
+      ];
+
+      const randomPower = powerWords[Math.floor(Math.random() * powerWords.length)];
+      const formattedInput = input.charAt(0).toUpperCase() + input.slice(1);
+      const optimized = `${formattedInput} — ${randomPower}`;
+
       output.textContent = optimized;
     }
 
+    // ✅ Hashtag Generator
     function generateHashtags() {
       const topic = document.getElementById('hashtag-input').value.trim();
       const output = document.getElementById('hashtag-output');
+
       if (topic.length === 0) {
         output.textContent = "⚠️ Please enter a topic first.";
         return;
       }
-      const base = topic.replace(/\s+/g, '');
-      const hashtags = [
-        `#${base}`,
-        `#${base}Life`,
-        `#${base}Vibes`,
-        `#${base}Trend`,
-        `#Viral${base}`,
-        `#${base}2025`
+
+      const cleanTopic = topic.replace(/\s+/g, '');
+      const baseHashtags = [
+        `#${cleanTopic}`,
+        `#${cleanTopic}Life`,
+        `#${cleanTopic}Vibes`,
+        `#${cleanTopic}Trend`,
+        `#Viral${cleanTopic}`,
+        `#${cleanTopic}2025`,
+        `#${cleanTopic}Tips`,
+        `#${cleanTopic}Guide`,
+        `#${cleanTopic}ForYou`,
+        `#${cleanTopic}🔥`
       ];
-      output.textContent = hashtags.join(' ');
+
+      const shuffled = baseHashtags.sort(() => 0.5 - Math.random());
+      const selected = shuffled.slice(0, 6);
+
+      output.textContent = selected.join(' ');
+    }
+
+    // ✅ Keyword Finder
+    function findKeywords() {
+      const topic = document.getElementById('keyword-input').value.trim();
+      const output = document.getElementById('keyword-results');
+
+      if (topic.length === 0) {
+        output.textContent = "⚠️ Please enter a topic first.";
+        return;
+      }
+
+      const keywords = [
+        `Best ${topic} strategies`,
+        `${topic} for beginners`,
+        `Advanced ${topic} tips`,
+        `How to master ${topic}`,
+        `${topic} in 2025`,
+        `Step by step ${topic} guide`,
+        `${topic} tools free`,
+        `${topic} tutorial`,
+        `${topic} checklist`,
+        `${topic} secrets revealed`
+      ];
+
+      const shuffled = keywords.sort(() => 0.5 - Math.random());
+      const selected = shuffled.slice(0, 6);
+
+      output.innerHTML = selected.map(k => `<div class="keyword-item">• ${k}</div>`).join('');
     }
   </script>
 </body>
