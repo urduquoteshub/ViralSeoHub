@@ -1,19 +1,106 @@
-:root{--maxw:980px;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial}
-*{box-sizing:border-box}
-body{margin:0;color:#1a1a1a;background:#fff}
-.container{max-width:var(--maxw);margin:0 auto;padding:18px}
-.site-header{background:#0b64d6;color:#fff;padding:18px 0}
-.site-header h1{margin:0}
-.site-header.small{padding:12px 0}
-.tag{opacity:0.95}
-.tools-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-top:18px}
-.tool-card{display:block;padding:16px;border:1px solid #eee;border-radius:8px;text-decoration:none;color:inherit;background:#fafafa}
-.tool-card h3{margin:0 0 6px 0}
-.actions{margin-top:12px}
-input,textarea{width:100%;padding:10px;border:1px solid #ddd;border-radius:6px;margin-top:6px}
-button{padding:8px 12px;border-radius:6px;border:0;background:#0b64d6;color:#fff;cursor:pointer}
-.suggestions{background:#fff;padding:10px;border-radius:6px;border:1px solid #eee;margin-top:12px}
-.tags-output{margin-top:12px}
-.keyword-list{margin-top:12px;padding-left:18px}
-.site-footer{background:#f5f7fb;padding:14px;margin-top:28px}
-@media (max-width:600px){.container{padding:12px}}
+/* ===== Global Styles ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, sans-serif;
+  line-height: 1.6;
+  background: #f9f9f9;
+  color: #333;
+}
+
+.container {
+  width: 90%;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+/* ===== Header ===== */
+.site-header {
+  background: linear-gradient(135deg, #4e54c8, #8f94fb);
+  color: white;
+  text-align: center;
+  padding: 2rem 0;
+}
+
+.site-header h1 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.site-header .tag {
+  font-size: 1rem;
+  opacity: 0.9;
+}
+
+/* ===== Tools Grid ===== */
+.tools-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+.tool-card {
+  background: white;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.tool-card h3 {
+  margin-bottom: 0.5rem;
+  color: #4e54c8;
+}
+
+.tool-card p {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.tool-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* ===== How it works ===== */
+.how-it-works {
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.how-it-works h2 {
+  margin-bottom: 1rem;
+  color: #4e54c8;
+}
+
+.how-it-works ol {
+  padding-left: 1.5rem;
+}
+
+.how-it-works li {
+  margin-bottom: 0.5rem;
+}
+
+/* ===== Footer ===== */
+.site-footer {
+  text-align: center;
+  padding: 1rem 0;
+  background: #4e54c8;
+  color: white;
+  margin-top: 2rem;
+}
+
+.site-footer a {
+  color: #fff;
+  text-decoration: underline;
+}
