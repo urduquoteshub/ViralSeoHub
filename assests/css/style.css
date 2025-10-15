@@ -1,0 +1,19 @@
+:root{--maxw:980px;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial}
+*{box-sizing:border-box}
+body{margin:0;color:#1a1a1a;background:#fff}
+.container{max-width:var(--maxw);margin:0 auto;padding:18px}
+.site-header{background:#0b64d6;color:#fff;padding:18px 0}
+.site-header h1{margin:0}
+.site-header.small{padding:12px 0}
+.tag{opacity:0.95}
+.tools-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-top:18px}
+.tool-card{display:block;padding:16px;border:1px solid #eee;border-radius:8px;text-decoration:none;color:inherit;background:#fafafa}
+.tool-card h3{margin:0 0 6px 0}
+.actions{margin-top:12px}
+input,textarea{width:100%;padding:10px;border:1px solid #ddd;border-radius:6px;margin-top:6px}
+button{padding:8px 12px;border-radius:6px;border:0;background:#0b64d6;color:#fff;cursor:pointer}
+.suggestions{background:#fff;padding:10px;border-radius:6px;border:1px solid #eee;margin-top:12px}
+.tags-output{margin-top:12px}
+.keyword-list{margin-top:12px;padding-left:18px}
+.site-footer{background:#f5f7fb;padding:14px;margin-top:28px}
+@media (max-width:600px){.container{padding:12px}}
