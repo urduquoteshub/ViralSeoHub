@@ -44,21 +44,46 @@
     button {
       background: #4e46e5;
       color: white;
-      padding: .6rem 1.2rem;
+      padding: .5rem 1rem;
       border: none;
       border-radius: 5px;
       cursor: pointer;
-      font-size: .95rem;
+      font-size: .9rem;
     }
     button:hover { background: #3c37c0; }
     .output {
       background: #f3f3f3;
       padding: .7rem;
       border-radius: 5px;
-      font-family: monospace;
-      white-space: pre-wrap;
+      font-family: sans-serif;
       min-height: 50px;
     }
+    .output-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #fff;
+      margin-bottom: 6px;
+      padding: 6px 10px;
+      border-radius: 5px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    }
+    .output-item span {
+      flex: 1;
+      margin-right: 10px;
+      font-size: .9rem;
+      word-break: break-word;
+    }
+    .copy-btn {
+      background: #4e46e5;
+      color: white;
+      border: none;
+      padding: 4px 8px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: .8rem;
+    }
+    .copy-btn:hover { background: #3c37c0; }
     footer {
       text-align: center;
       padding: 1rem;
@@ -112,7 +137,14 @@
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // ✅ Improved Title Generator
+    // ✅ Copy to clipboard function
+    function copyToClipboard(text) {
+      navigator.clipboard.writeText(text).then(() => {
+        alert('✅ Copied!');
+      });
+    }
+
+    // ✅ Improved Title Generator with copy buttons
     function optimizeTitle() {
       const input = document.getElementById('yt-title-input').value.trim();
       const output = document.getElementById('yt-title-output');
@@ -132,17 +164,19 @@
         "That Actually Work", "to Go Viral", "That Will Blow Your Mind"
       ];
 
-      let titles = [];
+      output.innerHTML = "";
       for (let i = 0; i < 5; i++) {
         const hook = hooks[Math.floor(Math.random() * hooks.length)];
         const end = endings[Math.floor(Math.random() * endings.length)];
-        titles.push(`${hook} ${input} ${end}`);
+        const title = `${hook} ${input} ${end}`;
+        const div = document.createElement('div');
+        div.className = 'output-item';
+        div.innerHTML = `<span>${title}</span><button class="copy-btn" onclick="copyToClipboard('${title.replace(/'/g, "\\'")}')">Copy</button>`;
+        output.appendChild(div);
       }
-
-      output.innerHTML = titles.map(t => `• ${t}`).join('<br>');
     }
 
-    // ✅ Improved Hashtag Generator
+    // ✅ Hashtag Generator with copy buttons
     function generateHashtags() {
       const topic = document.getElementById('hashtag-input').value.trim();
       const output = document.getElementById('hashtag-output');
@@ -164,11 +198,16 @@
       hashtags.add(`#${base.toLowerCase()}`);
       hashtags.add(`#${base.toUpperCase()}`);
 
-      const hashtagList = Array.from(hashtags).slice(0, 25);
-      output.textContent = hashtagList.join(' ');
+      output.innerHTML = "";
+      Array.from(hashtags).slice(0, 25).forEach(tag => {
+        const div = document.createElement('div');
+        div.className = 'output-item';
+        div.innerHTML = `<span>${tag}</span><button class="copy-btn" onclick="copyToClipboard('${tag}')">Copy</button>`;
+        output.appendChild(div);
+      });
     }
 
-    // ✅ Improved Keyword Finder
+    // ✅ Keyword Finder with copy buttons
     function findKeywords() {
       const topic = document.getElementById('keyword-input').value.trim();
       const output = document.getElementById('keyword-results');
@@ -194,9 +233,13 @@
         `expert ${topic} guide`
       ];
 
-      const shuffled = patterns.sort(() => 0.5 - Math.random());
-      const selected = shuffled.slice(0, 10);
-      output.innerHTML = selected.map(k => `• ${k}`).join('<br>');
+      output.innerHTML = "";
+      patterns.sort(() => 0.5 - Math.random()).slice(0, 10).forEach(kw => {
+        const div = document.createElement('div');
+        div.className = 'output-item';
+        div.innerHTML = `<span>${kw}</span><button class="copy-btn" onclick="copyToClipboard('${kw}')">Copy</button>`;
+        output.appendChild(div);
+      });
     }
   </script>
 </body>
