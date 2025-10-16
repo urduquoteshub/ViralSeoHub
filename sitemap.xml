@@ -1,19 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset 
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
   <url>
     <loc>https://viral-seo-hub.vercel.app/</loc>
+    <lastmod>2025-10-16</lastmod>
     <priority>1.00</priority>
   </url>
+
   <url>
-    <loc>https://viral-seo-hub.vercel.app/hashtag-generator.html</loc>
+    <loc>https://viral-seo-hub.vercel.app/about.html</loc>
+    <lastmod>2025-10-16</lastmod>
     <priority>0.80</priority>
   </url>
-  <url>
-    <loc>https://viral-seo-hub.vercel.app/keyword-finder.html</loc>
-    <priority>0.80</priority>
-  </url>
+
   <url>
     <loc>https://viral-seo-hub.vercel.app/contact.html</loc>
-    <priority>0.64</priority>
+    <lastmod>2025-10-16</lastmod>
+    <priority>0.80</priority>
   </url>
+
+  <url>
+    <loc>https://viral-seo-hub.vercel.app/privacy.html</loc>
+    <lastmod>2025-10-16</lastmod>
+    <priority>0.80</priority>
+  </url>
+
 </urlset>
