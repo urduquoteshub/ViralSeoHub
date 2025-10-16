@@ -131,6 +131,55 @@
       <button onclick="findKeywords()">Find Keywords</button>
       <div class="output" id="keyword-results"></div>
     </div>
+    <!-- 🔥 Advanced Description Generator Section -->
+<section class="p-4">
+  <h2 class="text-xl font-bold mb-2">Powerful Description Generator</h2>
+  <p class="mb-4">Enter your <b>YouTube video title</b> below to generate an SEO-friendly and engaging description:</p>
+
+  <textarea id="descTitleInput" placeholder="Enter your video title..." class="w-full p-2 border rounded mb-3" rows="3"></textarea>
+  
+  <button onclick="generateAdvancedDescription()" class="bg-green-600 text-white px-4 py-2 rounded w-full">
+    Generate SEO Description
+  </button>
+
+  <div id="descOutput" class="mt-4 p-3 border rounded bg-gray-50 text-sm whitespace-pre-line"></div>
+</section>
+
+<script>
+  function generateAdvancedDescription() {
+    const title = document.getElementById('descTitleInput').value.trim();
+    const output = document.getElementById('descOutput');
+
+    if (!title) {
+      output.innerHTML = "<span style='color:red;'>⚠️ Please enter a video title first.</span>";
+      return;
+    }
+
+    // 🔥 Smart keywords extraction (simple)
+    const keywords = title.split(' ')
+      .filter(word => word.length > 3)
+      .map(word => word.replace(/[^a-zA-Z0-9]/g, ''))
+      .slice(0, 6)
+      .join(', ');
+
+    // ✨ Powerful description template
+    const description = 
+`🎬 ${title}
+
+In this video, we explore everything about **${title}** and share valuable tips, strategies, and insights to help you succeed. Whether you're a beginner or an expert, this video is packed with information you don't want to miss!
+
+🔥 Topics Covered:
+- ${keywords.split(', ').join('\n- ')}
+
+📌 Watch till the end for pro tips and actionable advice.
+
+👉 If you enjoyed this video, make sure to LIKE 👍, COMMENT 💬, and SUBSCRIBE 🔔 for more amazing content!
+
+#${title.replace(/\s+/g, '')} #trending #viral #YouTubeGrowth`;
+
+    output.innerText = description;
+  }
+</script>
   </div>
 
   <footer>
