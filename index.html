@@ -7,9 +7,7 @@
   <meta name="description" content="Free SEO tools for YouTube, TikTok & Instagram creators — title optimizer, hashtag generator, keyword finder and meta tag builder.">
 
   <style>
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
     body {
       font-family: Arial, sans-serif;
       margin: 0;
@@ -23,19 +21,9 @@
       text-align: center;
       padding: 1.5rem;
     }
-    header h1 {
-      margin: 0;
-      font-size: 1.8rem;
-    }
-    header p {
-      margin-top: .3rem;
-      font-size: .95rem;
-    }
-    .container {
-      max-width: 900px;
-      margin: 1.5rem auto;
-      padding: 0 1rem;
-    }
+    header h1 { margin: 0; font-size: 1.8rem; }
+    header p { margin-top: .3rem; font-size: .95rem; }
+    .container { max-width: 900px; margin: 1.5rem auto; padding: 0 1rem; }
     .tool-box {
       background: white;
       padding: 1rem;
@@ -43,9 +31,7 @@
       border-radius: 10px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     }
-    .tool-box h2 {
-      margin-top: 0;
-    }
+    .tool-box h2 { margin-top: 0; }
     textarea, input {
       width: 100%;
       padding: .7rem;
@@ -64,9 +50,7 @@
       cursor: pointer;
       font-size: .95rem;
     }
-    button:hover {
-      background: #3c37c0;
-    }
+    button:hover { background: #3c37c0; }
     .output {
       background: #f3f3f3;
       padding: .7rem;
@@ -82,13 +66,8 @@
       color: #fff;
       margin-top: 2rem;
     }
-    footer a {
-      color: #9fa8ff;
-      text-decoration: none;
-    }
-    footer a:hover {
-      text-decoration: underline;
-    }
+    footer a { color: #9fa8ff; text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
   </style>
 </head>
 <body>
@@ -98,16 +77,16 @@
   </header>
 
   <div class="container">
-    <!-- YouTube Title Optimizer Tool -->
+    <!-- Title Optimizer -->
     <div class="tool-box">
       <h2>YouTube Title Optimizer</h2>
-      <p>Enter your video title below to optimize it for better search visibility:</p>
+      <p>Enter your video title below to get multiple viral title ideas:</p>
       <textarea id="yt-title-input" rows="3" placeholder="Enter your video title..."></textarea>
-      <button onclick="optimizeTitle()">Generate Optimized Title</button>
+      <button onclick="optimizeTitle()">Generate Optimized Titles</button>
       <div class="output" id="yt-title-output"></div>
     </div>
 
-    <!-- Hashtag Generator Tool -->
+    <!-- Hashtag Generator -->
     <div class="tool-box">
       <h2>Hashtag Generator</h2>
       <p>Enter a topic to generate trending hashtags:</p>
@@ -116,7 +95,7 @@
       <div class="output" id="hashtag-output"></div>
     </div>
 
-    <!-- ✅ Keyword Finder Tool (New) -->
+    <!-- Keyword Finder -->
     <div class="tool-box">
       <h2>Keyword Finder</h2>
       <p>Enter a topic to find related keywords:</p>
@@ -133,61 +112,90 @@
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
 
+    // ✅ Improved Title Generator
     function optimizeTitle() {
       const input = document.getElementById('yt-title-input').value.trim();
       const output = document.getElementById('yt-title-output');
-      if (input.length === 0) {
+      if (!input) {
         output.textContent = "⚠️ Please enter a title first.";
         return;
       }
-      const keywords = ["2025", "Viral", "Trending", "Best", "Ultimate", "Guide", "Tips"];
-      const randomKeyword = keywords[Math.floor(Math.random() * keywords.length)];
-      const optimized = `${input} | ${randomKeyword}`;
-      output.textContent = optimized;
+
+      const hooks = [
+        "You Won't Believe", "Top Secrets of", "Step by Step Guide to",
+        "The Ultimate Way to", "How to Master", "Expert Tips for",
+        "Proven Strategies for", "Viral Tricks to", "Best Hacks for", "Why Everyone Loves"
+      ];
+
+      const endings = [
+        "in 2025", "Like a Pro", "in Minutes", "No One Told You About",
+        "That Actually Work", "to Go Viral", "That Will Blow Your Mind"
+      ];
+
+      let titles = [];
+      for (let i = 0; i < 5; i++) {
+        const hook = hooks[Math.floor(Math.random() * hooks.length)];
+        const end = endings[Math.floor(Math.random() * endings.length)];
+        titles.push(`${hook} ${input} ${end}`);
+      }
+
+      output.innerHTML = titles.map(t => `• ${t}`).join('<br>');
     }
 
+    // ✅ Improved Hashtag Generator
     function generateHashtags() {
       const topic = document.getElementById('hashtag-input').value.trim();
       const output = document.getElementById('hashtag-output');
-      if (topic.length === 0) {
+      if (!topic) {
         output.textContent = "⚠️ Please enter a topic first.";
         return;
       }
+
       const base = topic.replace(/\s+/g, '');
-      const hashtags = [
-        `#${base}`,
-        `#${base}Life`,
-        `#${base}Vibes`,
-        `#${base}Trend`,
-        `#Viral${base}`,
-        `#${base}2025`
+      const extras = [
+        "Tips", "Tricks", "Viral", "Life", "Goals", "Reel", "Shorts",
+        "Trend", "Daily", "Inspo", "Love", "Challenge", "Hacks", "Ideas", "2025"
       ];
-      output.textContent = hashtags.join(' ');
+
+      const hashtags = new Set();
+      hashtags.add(`#${base}`);
+      extras.forEach(ex => hashtags.add(`#${base}${ex}`));
+      extras.forEach(ex => hashtags.add(`#${ex}${base}`));
+      hashtags.add(`#${base.toLowerCase()}`);
+      hashtags.add(`#${base.toUpperCase()}`);
+
+      const hashtagList = Array.from(hashtags).slice(0, 25);
+      output.textContent = hashtagList.join(' ');
     }
 
+    // ✅ Improved Keyword Finder
     function findKeywords() {
       const topic = document.getElementById('keyword-input').value.trim();
       const output = document.getElementById('keyword-results');
-      if (topic.length === 0) {
+      if (!topic) {
         output.textContent = "⚠️ Please enter a topic first.";
         return;
       }
 
-      const keywords = [
-        `Best ${topic} strategies`,
+      const patterns = [
+        `best ${topic} strategies`,
         `${topic} for beginners`,
-        `Advanced ${topic} tips`,
-        `How to master ${topic}`,
+        `advanced ${topic} tips`,
+        `how to master ${topic}`,
         `${topic} in 2025`,
-        `Step by step ${topic} guide`,
+        `step by step ${topic} guide`,
         `${topic} tools free`,
         `${topic} tutorial`,
         `${topic} checklist`,
-        `${topic} secrets revealed`
+        `${topic} secrets revealed`,
+        `${topic} growth hacks`,
+        `${topic} viral tips`,
+        `easy ${topic} ideas`,
+        `expert ${topic} guide`
       ];
 
-      const shuffled = keywords.sort(() => 0.5 - Math.random());
-      const selected = shuffled.slice(0, 6);
+      const shuffled = patterns.sort(() => 0.5 - Math.random());
+      const selected = shuffled.slice(0, 10);
       output.innerHTML = selected.map(k => `• ${k}`).join('<br>');
     }
   </script>
