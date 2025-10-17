@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>ViralSEOHub — Free SEO Tools for Creators</title><meta name="google-site-verification" content="p7M7o4C3vj45UPAOrM1t0G8nv--ZEL0ciRywPY2x2Pk" />
+  <title>ViralSEOHub — Free SEO Tools for Creators</title>
+  <meta name="google-site-verification" content="p7M7o4C3vj45UPAOrM1t0G8nv--ZEL0ciRywPY2x2Pk" />
   <meta name="description" content="Free SEO tools for YouTube, TikTok & Instagram creators — title optimizer, hashtag generator, keyword finder and meta tag builder.">
 
   <style>
@@ -104,16 +105,16 @@
   <div class="container">
     <!-- Title Optimizer -->
     <div class="tool-box">
-      <h2>YouTube Title Optimizer</h2>
-      <p>Enter your video title below to get multiple viral title ideas:</p>
-      <textarea id="yt-title-input" rows="3" placeholder="Enter your video title..."></textarea>
-      <button onclick="optimizeTitle()">Generate Optimized Titles</button>
+      <h2>⚡ Viral YouTube Title Generator</h2>
+      <p>Enter your video topic to generate multiple viral, SEO-rich titles:</p>
+      <textarea id="yt-title-input" rows="3" placeholder="Enter your video title or topic..."></textarea>
+      <button onclick="optimizeTitle()">Generate Viral Titles</button>
       <div class="output" id="yt-title-output"></div>
     </div>
 
     <!-- Hashtag Generator -->
     <div class="tool-box">
-      <h2>Hashtag Generator</h2>
+      <h2>📌 Hashtag Generator</h2>
       <p>Enter a topic to generate trending hashtags:</p>
       <input type="text" id="hashtag-input" placeholder="e.g. travel vlog, cooking">
       <button onclick="generateHashtags()">Generate Hashtags</button>
@@ -122,174 +123,135 @@
 
     <!-- Keyword Finder -->
     <div class="tool-box">
-      <h2>Keyword Finder</h2>
+      <h2>🔍 Keyword Finder</h2>
       <p>Enter a topic to find related keywords:</p>
       <input type="text" id="keyword-input" placeholder="e.g. YouTube SEO tips">
       <button onclick="findKeywords()">Find Keywords</button>
       <div class="output" id="keyword-results"></div>
     </div>
-    <!-- 🔥 Advanced Description Generator Section -->
-<section class="p-4">
-  <h2 class="text-xl font-bold mb-2">Powerful Description Generator</h2>
-  <p class="mb-4">Enter your <b>YouTube video title</b> below to generate an SEO-friendly and engaging description:</p>
 
-  <textarea id="descTitleInput" placeholder="Enter your video title..." class="w-full p-2 border rounded mb-3" rows="3"></textarea>
-  
-  <button onclick="generateAdvancedDescription()" class="bg-green-600 text-white px-4 py-2 rounded w-full">
-    Generate SEO Description
-  </button>
-
-  <div id="descOutput" class="mt-4 p-3 border rounded bg-gray-50 text-sm whitespace-pre-line"></div>
-</section>
-
-<script>
-  function generateAdvancedDescription() {
-    const title = document.getElementById('descTitleInput').value.trim();
-    const output = document.getElementById('descOutput');
-
-    if (!title) {
-      output.innerHTML = "<span style='color:red;'>⚠️ Please enter a video title first.</span>";
-      return;
-    }
-
-    // 🔥 Smart keywords extraction (simple)
-    const keywords = title.split(' ')
-      .filter(word => word.length > 3)
-      .map(word => word.replace(/[^a-zA-Z0-9]/g, ''))
-      .slice(0, 6)
-      .join(', ');
-
-    // ✨ Powerful description template
-    const description = 
-`🎬 ${title}
-
-In this video, we explore everything about **${title}** and share valuable tips, strategies, and insights to help you succeed. Whether you're a beginner or an expert, this video is packed with information you don't want to miss!
-
-🔥 Topics Covered:
-- ${keywords.split(', ').join('\n- ')}
-
-📌 Watch till the end for pro tips and actionable advice.
-
-👉 If you enjoyed this video, make sure to LIKE 👍, COMMENT 💬, and SUBSCRIBE 🔔 for more amazing content!
-
-#${title.replace(/\s+/g, '')} #trending #viral #YouTubeGrowth`;
-
-    output.innerText = description;
-  }
-</script>
+    <!-- Powerful Description Generator -->
+    <div class="tool-box">
+      <h2>📝 Advanced Description Generator</h2>
+      <p>Enter your <b>YouTube video title</b> to generate a powerful, SEO-friendly description:</p>
+      <textarea id="descTitleInput" placeholder="Enter your video title..." rows="3"></textarea>
+      <button onclick="generateAdvancedDescription()">Generate Description</button>
+      <div class="output" id="descOutput"></div>
+    </div>
   </div>
 
   <footer>
     <p>&copy; <span id="year"></span> ViralSEOHub — <a href="privacy.html">Privacy</a> | <a href="about.html">About</a> | <a href="contact.html">Contact</a></p>
   </footer>
 
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
+<script>
+document.getElementById('year').textContent = new Date().getFullYear();
 
-    // ✅ Copy to clipboard function
-    function copyToClipboard(text) {
-      navigator.clipboard.writeText(text).then(() => {
-        alert('✅ Copied!');
-      });
-    }
+function copyToClipboard(text) {
+  navigator.clipboard.writeText(text).then(() => alert('✅ Copied!'));
+}
 
-    // ✅ Improved Title Generator with copy buttons
-    function optimizeTitle() {
-      const input = document.getElementById('yt-title-input').value.trim();
-      const output = document.getElementById('yt-title-output');
-      if (!input) {
-        output.textContent = "⚠️ Please enter a title first.";
-        return;
-      }
+// ⚡ Smarter Title Generator
+function optimizeTitle() {
+  const topic = document.getElementById('yt-title-input').value.trim();
+  const output = document.getElementById('yt-title-output');
+  if (!topic) { output.textContent = "⚠️ Please enter a title or topic first."; return; }
 
-      const hooks = [
-        "You Won't Believe", "Top Secrets of", "Step by Step Guide to",
-        "The Ultimate Way to", "How to Master", "Expert Tips for",
-        "Proven Strategies for", "Viral Tricks to", "Best Hacks for", "Why Everyone Loves"
-      ];
+  const hooks = [
+    "The Secret Behind", "Top Ways to", "You Won’t Believe", "Ultimate Guide to",
+    "Why Everyone’s Talking About", "How to Master", "The Truth About",
+    "Powerful Tips for", "Expert Hacks to", "Beginner’s Guide to"
+  ];
+  const endings = [
+    "in 2025", "Like a Pro", "That Actually Work", "to Go Viral",
+    "Step by Step", "No One Told You About", "to Explode Your Channel",
+    "for Instant Growth", "That Get Millions of Views"
+  ];
 
-      const endings = [
-        "in 2025", "Like a Pro", "in Minutes", "No One Told You About",
-        "That Actually Work", "to Go Viral", "That Will Blow Your Mind"
-      ];
+  output.innerHTML = "";
+  for (let i = 0; i < 7; i++) {
+    const hook = hooks[Math.floor(Math.random() * hooks.length)];
+    const end = endings[Math.floor(Math.random() * endings.length)];
+    const title = `${hook} ${topic} ${end}`;
+    const div = document.createElement('div');
+    div.className = 'output-item';
+    div.innerHTML = `<span>${title}</span><button class="copy-btn" onclick="copyToClipboard('${title.replace(/'/g, "\\'")}')">Copy</button>`;
+    output.appendChild(div);
+  }
+}
 
-      output.innerHTML = "";
-      for (let i = 0; i < 5; i++) {
-        const hook = hooks[Math.floor(Math.random() * hooks.length)];
-        const end = endings[Math.floor(Math.random() * endings.length)];
-        const title = `${hook} ${input} ${end}`;
-        const div = document.createElement('div');
-        div.className = 'output-item';
-        div.innerHTML = `<span>${title}</span><button class="copy-btn" onclick="copyToClipboard('${title.replace(/'/g, "\\'")}')">Copy</button>`;
-        output.appendChild(div);
-      }
-    }
+// 📝 Advanced Description Generator
+function generateAdvancedDescription() {
+  const title = document.getElementById('descTitleInput').value.trim();
+  const output = document.getElementById('descOutput');
+  if (!title) { output.innerHTML = "<span style='color:red;'>⚠️ Please enter a video title.</span>"; return; }
 
-    // ✅ Hashtag Generator with copy buttons
-    function generateHashtags() {
-      const topic = document.getElementById('hashtag-input').value.trim();
-      const output = document.getElementById('hashtag-output');
-      if (!topic) {
-        output.textContent = "⚠️ Please enter a topic first.";
-        return;
-      }
+  const keywords = title.split(' ')
+    .filter(w => w.length > 3)
+    .map(w => w.replace(/[^a-zA-Z0-9]/g, ''))
+    .slice(0, 8)
+    .join(', ');
 
-      const base = topic.replace(/\s+/g, '');
-      const extras = [
-        "Tips", "Tricks", "Viral", "Life", "Goals", "Reel", "Shorts",
-        "Trend", "Daily", "Inspo", "Love", "Challenge", "Hacks", "Ideas", "2025"
-      ];
+  const description = 
+`🎬 **${title}**
 
-      const hashtags = new Set();
-      hashtags.add(`#${base}`);
-      extras.forEach(ex => hashtags.add(`#${base}${ex}`));
-      extras.forEach(ex => hashtags.add(`#${ex}${base}`));
-      hashtags.add(`#${base.toLowerCase()}`);
-      hashtags.add(`#${base.toUpperCase()}`);
+Welcome to this in-depth video on **${title}**, where we dive deep into the strategies, secrets, and tips that will help you stand out in 2025. Whether you're just starting your journey or you're looking to grow fast — this video covers everything you need.
 
-      output.innerHTML = "";
-      Array.from(hashtags).slice(0, 25).forEach(tag => {
-        const div = document.createElement('div');
-        div.className = 'output-item';
-        div.innerHTML = `<span>${tag}</span><button class="copy-btn" onclick="copyToClipboard('${tag}')">Copy</button>`;
-        output.appendChild(div);
-      });
-    }
+🔥 **In this video you’ll learn:**
+- ${keywords.split(', ').join('\n- ')}
 
-    // ✅ Keyword Finder with copy buttons
-    function findKeywords() {
-      const topic = document.getElementById('keyword-input').value.trim();
-      const output = document.getElementById('keyword-results');
-      if (!topic) {
-        output.textContent = "⚠️ Please enter a topic first.";
-        return;
-      }
+📌 Watch till the end for pro insights and actionable techniques.
 
-      const patterns = [
-        `best ${topic} strategies`,
-        `${topic} for beginners`,
-        `advanced ${topic} tips`,
-        `how to master ${topic}`,
-        `${topic} in 2025`,
-        `step by step ${topic} guide`,
-        `${topic} tools free`,
-        `${topic} tutorial`,
-        `${topic} checklist`,
-        `${topic} secrets revealed`,
-        `${topic} growth hacks`,
-        `${topic} viral tips`,
-        `easy ${topic} ideas`,
-        `expert ${topic} guide`
-      ];
+🚀 If this video helps you, don’t forget to **LIKE**, **COMMENT**, and **SUBSCRIBE** for more viral content every week!
 
-      output.innerHTML = "";
-      patterns.sort(() => 0.5 - Math.random()).slice(0, 10).forEach(kw => {
-        const div = document.createElement('div');
-        div.className = 'output-item';
-        div.innerHTML = `<span>${kw}</span><button class="copy-btn" onclick="copyToClipboard('${kw}')">Copy</button>`;
-        output.appendChild(div);
-      });
-    }
-  </script>
+#${title.replace(/\s+/g, '')} #ViralSEO #YouTubeGrowth #Trending`;
+
+  output.innerText = description;
+}
+
+// Hashtag Generator
+function generateHashtags() {
+  const topic = document.getElementById('hashtag-input').value.trim();
+  const output = document.getElementById('hashtag-output');
+  if (!topic) { output.textContent = "⚠️ Please enter a topic first."; return; }
+
+  const base = topic.replace(/\s+/g, '');
+  const extras = ["Tips", "Tricks", "Viral", "Life", "Goals", "Reel", "Shorts", "Trend", "Daily", "Inspo", "Challenge", "2025"];
+  const hashtags = new Set();
+  hashtags.add(`#${base}`);
+  extras.forEach(ex => hashtags.add(`#${base}${ex}`));
+  extras.forEach(ex => hashtags.add(`#${ex}${base}`));
+
+  output.innerHTML = "";
+  Array.from(hashtags).slice(0, 25).forEach(tag => {
+    const div = document.createElement('div');
+    div.className = 'output-item';
+    div.innerHTML = `<span>${tag}</span><button class="copy-btn" onclick="copyToClipboard('${tag}')">Copy</button>`;
+    output.appendChild(div);
+  });
+}
+
+// Keyword Finder
+function findKeywords() {
+  const topic = document.getElementById('keyword-input').value.trim();
+  const output = document.getElementById('keyword-results');
+  if (!topic) { output.textContent = "⚠️ Please enter a topic first."; return; }
+
+  const patterns = [
+    `best ${topic} strategies`, `${topic} for beginners`, `advanced ${topic} tips`,
+    `how to master ${topic}`, `${topic} in 2025`, `step by step ${topic} guide`,
+    `${topic} tools free`, `${topic} tutorial`, `${topic} secrets revealed`,
+    `${topic} growth hacks`, `${topic} viral tips`, `easy ${topic} ideas`
+  ];
+
+  output.innerHTML = "";
+  patterns.sort(() => 0.5 - Math.random()).slice(0, 10).forEach(kw => {
+    const div = document.createElement('div');
+    div.className = 'output-item';
+    div.innerHTML = `<span>${kw}</span><button class="copy-btn" onclick="copyToClipboard('${kw}')">Copy</button>`;
+    output.appendChild(div);
+  });
+}
+</script>
 </body>
 </html>
