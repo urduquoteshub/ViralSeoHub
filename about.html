@@ -1,18 +1,93 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>About — ViralSEOHub</title>
-  <meta name="description" content="About ViralSEOHub — free SEO tools for creators.">
-  <link rel="stylesheet" href="assets/css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us — ViralSEOHub</title>
+  <meta name="description" content="Learn more about ViralSEOHub — the free SEO tool platform for creators.">
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f9f9f9;
+      color: #333;
+    }
+    header {
+      background: #1e1e2f;
+      color: white;
+      text-align: center;
+      padding: 1.5rem;
+    }
+    header h1 { margin: 0; font-size: 1.8rem; }
+    header p { margin-top: .3rem; font-size: .95rem; }
+
+    .container {
+      max-width: 800px;
+      margin: 2rem auto;
+      background: white;
+      padding: 1.5rem;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      margin-top: 0;
+      text-align: center;
+    }
+
+    p {
+      font-size: 1rem;
+      line-height: 1.7;
+      margin-bottom: 1rem;
+      text-align: justify;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background: #1e1e2f;
+      color: #fff;
+      margin-top: 2rem;
+    }
+    footer a {
+      color: #9fa8ff;
+      text-decoration: none;
+    }
+    footer a:hover { text-decoration: underline; }
+  </style>
 </head>
 <body>
-  <header class="site-header small"><div class="container"><h1><a href="index.html">ViralSEOHub</a></h1></div></header>
-  <main class="container">
-    <h2>About ViralSEOHub</h2>
-    <p>ViralSEOHub provides free, simple SEO tools designed for creators on YouTube, TikTok and Instagram. Use our tools to improve titles, descriptions, and hashtags so your content reaches more viewers.</p>
-  </main>
-  <footer class="site-footer"><div class="container">&copy; ViralSEOHub</div></footer>
+
+  <header>
+    <h1>ViralSEOHub</h1>
+    <p>Free SEO Tools for YouTube, TikTok & Instagram Creators</p>
+  </header>
+
+  <div class="container">
+    <h2>About Us</h2>
+    <p>Welcome to <strong>ViralSEOHub</strong> — your free hub for smart, powerful, and easy-to-use SEO tools. We help content creators, digital marketers, and business owners generate viral titles, strong descriptions, and optimized content for platforms like YouTube, TikTok, and Instagram.</p>
+
+    <p>Our mission is simple: <strong>Make SEO effortless and accessible for everyone</strong>. Whether you're a beginner or a pro, our tools are designed to save time, improve visibility, and boost your content's reach.</p>
+
+    <p>We’re constantly working to add new tools and improve existing ones. If you have ideas, suggestions, or feedback, feel free to <a href="contact.html">contact us</a>.</p>
+
+    <p style="text-align:center; font-size:0.9rem; color:#555;">
+      🚀 ViralSEOHub — Built with ❤️ for Creators.
+    </p>
+  </div>
+
+  <footer>
+    <p>&copy; <span id="year"></span> ViralSEOHub — 
+      <a href="index.html">Home</a> | 
+      <a href="privacy.html">Privacy</a> | 
+      <a href="about.html">About</a>
+    </p>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
