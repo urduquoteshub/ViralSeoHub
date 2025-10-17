@@ -1,29 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset 
-  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://viral-seo-hub.vercel.app/</loc>
-    <lastmod>2025-10-16</lastmod>
-    <priority>1.00</priority>
+    <loc>https://viral-seo-obg9t52vu-urduquoteshubs-projects.vercel.app/</loc>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
   </url>
-
   <url>
-    <loc>https://viral-seo-hub.vercel.app/about.html</loc>
-    <lastmod>2025-10-16</lastmod>
-    <priority>0.80</priority>
+    <loc>https://viral-seo-obg9t52vu-urduquoteshubs-projects.vercel.app/about.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
-
   <url>
-    <loc>https://viral-seo-hub.vercel.app/contact.html</loc>
-    <lastmod>2025-10-16</lastmod>
-    <priority>0.80</priority>
+    <loc>https://viral-seo-obg9t52vu-urduquoteshubs-projects.vercel.app/privacy.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
-
   <url>
-    <loc>https://viral-seo-hub.vercel.app/privacy.html</loc>
-    <lastmod>2025-10-16</lastmod>
-    <priority>0.80</priority>
+    <loc>https://viral-seo-obg9t52vu-urduquoteshubs-projects.vercel.app/contact.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
-
 </urlset>
